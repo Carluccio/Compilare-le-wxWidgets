@@ -1,0 +1,187 @@
+@echo off
+TITLE INIZIALIZZAZIONE COMPILAZIONE WXWIDGETS
+MODE CON COLS=132 LINES=30
+:START
+@echo.
+@echo --------------------------------------------------------------------------
+@echo   Carlo Sala v: 2.0.0  --- Compilazione  wxWidgets - Inserimento dati --
+@echo --------------------------------------------------------------------------
+@echo.
+@echo Inserire il percorso delle wxWidgets ad esempio 
+SET /P WXWIN= :"C:\wxWidgets-3.0.2" + Invio per confermare ... 
+@echo.
+@echo Inserire il percorso del compilatore 32 bit ad esempio: "C:\TDM-GCC-32\bin"
+SET /P COMP32= oppure "n" se non installato + Invio per confermare ... 
+@echo.
+@echo Inserire il percorso del compilatore 64 bit ad esempio: "C:\TDM-GCC-64\bin"
+SET /P COMP64=  oppure "n" se non installato + Invio per confermare ...
+@echo.
+@echo Inserire CXXFLAGS ad esempio: "-fno-keep-inline-dllexport" -std=gnu++11 e/o: -std=gnu++14
+@echo Se per compilare wxWidgets (3.x), usi TDM-GCC, bisogna qui aggiungere: "-fno-keep-inline-dllexport -std=gnu++11"
+SET /P FLAGS=   oppure spazio vuoto + Invio per confermare ...
+
+@echo -------------------------------------------------------------------------
+SET PATH1=%PATH%
+SET WXPP=%WXWIN%\build\msw\
+@echo on
+:MENU
+TITLE COMPILAZIONE WXWIDGETS
+SET INPUT=7
+SET INPUT1=7
+CLS
+@echo.
+@echo --------------------------------------------------------------------------
+@echo    Carlo Sala v.1  ---           Compilazione  wxWidgets         ---
+@echo --------------------------------------------------------------------------
+@echo.
+@echo.
+@echo  1) Architettura 32 dinamica release   5) Architettura 64 dinamica release
+@echo.
+@echo  2) Architettura 32 dinamica debug     6) Architettura 64 dinamica debug
+@echo.
+@echo  3) Architettura 32 statica release    7) Architettura 64 statica release
+@echo.
+@echo  4) Architettura 32 statica debug      8) Architettura 64 statica debug
+@echo.
+@echo --------------------------------------------------------------------------
+@echo.
+@echo Ogni procedura occupa un tempo piuttosto lungo ed e' sconsigliabile 
+@echo interromperla. Bisogna poi ricordarsi le scelte fatte ad ogni passaggio.
+@echo.
+@echo off
+SET /P INPUT= SCELTA OPPURE "0" PER USCIRE OPPURE "10" PER TORNARE ALL'INIZIO: 
+SET /P INPUT1= RIPETI SCELTA:
+if %INPUT% == %INPUT1% GOTO VAI
+GOTO MENU
+:VAI
+CLS
+if %INPUT% ==  0 ( EXIT ) 
+if %INPUT% == 10 ( GOTO START )
+if %INPUT% ==  1 ( GOTO 32A )
+if %INPUT% ==  3 ( GOTO 32B )
+if %INPUT% ==  4 ( GOTO 32C )
+if %INPUT% ==  5 ( GOTO 64A )
+if %INPUT% ==  7 ( GOTO 64B )
+if %INPUT% ==  8 ( GOTO 64C )
+if %INPUT% ==  2 ( GOTO 32D )
+if %INPUT% ==  6 ( GOTO 64D )
+
+GOTO MENU
+
+:32A
+if %COMP32% == n GOTO MENU
+@echo ATTENDI!
+CD %WXPP%
+set PATH=%COMP32%;%PATH1%
+TITLE Compilazione librerie dinamiche 32 release ...
+@echo ---------------------------------------------------------------------------
+mingw32-make  -f makefile.gcc  CPP="gcc -E -D_M_X86" CXXFLAGS="%FLAGS%" BUILD=release SHARED=1 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 clean
+mingw32-make  -f makefile.gcc  CPP="gcc -E -D_M_X86" CXXFLAGS="%FLAGS%" BUILD=release SHARED=1 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1
+@echo ---------------------------------------------------------------------------
+@echo Fine compilazione librerie dinamiche 32 release ...
+pause
+GOTO MENU
+
+:32B
+if %COMP32% == n GOTO MENU
+@echo ATTENDI!
+CD %WXPP%
+set PATH=%COMP32%;%PATH1%
+TITLE Compilazione librerie statiche 32 release ...
+@echo ---------------------------------------------------------------------------
+mingw32-make  -f makefile.gcc  CPP="gcc -E -D_M_X86" CXXFLAGS="%FLAGS%" BUILD=release SHARED=0 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 clean
+mingw32-make  -f makefile.gcc  CPP="gcc -E -D_M_X86" CXXFLAGS="%FLAGS%" BUILD=release SHARED=0 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1
+@echo ---------------------------------------------------------------------------
+@echo Fine compilazione librerie statiche 32 release ...
+pause
+GOTO MENU
+
+:32C
+if %COMP32% == n GOTO MENU
+@echo ATTENDI!
+CD %WXPP%
+set PATH=%COMP32%;%PATH1%
+TITLE Compilazione librerie statiche 32 debug ...
+@echo ---------------------------------------------------------------------------
+mingw32-make  -f makefile.gcc  CPP="gcc -E -D_M_X86" CXXFLAGS="%FLAGS%" BUILD=debug SHARED=0 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 clean
+mingw32-make  -f makefile.gcc  CPP="gcc -E -D_M_X86" CXXFLAGS="%FLAGS%" BUILD=debug SHARED=0 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1
+@echo ---------------------------------------------------------------------------
+@echo Fine compilazione librerie statiche 32 debug ...
+pause
+GOTO MENU
+
+:32D
+if %COMP32% == n GOTO MENU
+@echo ATTENDI!
+CD %WXPP%
+set PATH=%COMP32%;%PATH1%
+TITLE Compilazione librerie dinamiche 32 debug ...
+@echo ---------------------------------------------------------------------------
+mingw32-make  -f makefile.gcc  CPP="gcc -E -D_M_X86" CXXFLAGS="%FLAGS%" BUILD=debug SHARED=1 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 clean
+mingw32-make  -f makefile.gcc  CPP="gcc -E -D_M_X86" CXXFLAGS="%FLAGS%" BUILD=debug SHARED=1 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1
+@echo ---------------------------------------------------------------------------
+@echo Fine compilazione librerie dinamiche 32 debug ...
+pause
+GOTO MENU
+
+:64A
+if %COMP64% == n GOTO MENU
+@echo ATTENDI!
+CD %WXPP%
+set PATH=%COMP64%;%PATH1%
+TITLE Compilazione librerie dinamiche 64 release ...
+@echo ---------------------------------------------------------------------------
+mingw32-make  -f makefile.gcc  CFG=64 CPP="gcc -E -D_M_AMD64" CXXFLAGS="%FLAGS%" BUILD=release SHARED=1 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 clean
+mingw32-make  -f makefile.gcc  CFG=64 CPP="gcc -E -D_M_AMD64" CXXFLAGS="%FLAGS%" BUILD=release SHARED=1 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1
+@echo ---------------------------------------------------------------------------
+@echo Fine compilazione librerie dinamiche 64 release ...
+pause
+GOTO MENU
+
+:64B
+if %COMP64% == n GOTO MENU
+@echo ATTENDI!
+CD %WXPP%
+set PATH=%COMP64%;%PATH1%
+TITLE Compilazione librerie statiche 64 release ...
+@echo ---------------------------------------------------------------------------
+mingw32-make  -f makefile.gcc  CFG=64 CPP="gcc -E -D_M_AMD64" CXXFLAGS="%FLAGS%" BUILD=release SHARED=0 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 clean
+mingw32-make  -f makefile.gcc  CFG=64 CPP="gcc -E -D_M_AMD64" CXXFLAGS="%FLAGS%" BUILD=release SHARED=0 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1
+@echo ---------------------------------------------------------------------------
+@echo Fine compilazione librerie statiche 64 release ...
+pause
+GOTO MENU
+
+:64C
+if %COMP64% == n GOTO MENU
+@echo ATTENDI!
+CD %WXPP%
+set PATH=%COMP64%;%PATH1%
+TITLE Compilazione librerie statiche 64 debug ...
+@echo ---------------------------------------------------------------------------
+mingw32-make  -f makefile.gcc  CFG=64 CPP="gcc -E -D_M_AMD64" CXXFLAGS="%FLAGS%" BUILD=debug SHARED=0 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 clean
+mingw32-make  -f makefile.gcc  CFG=64 CPP="gcc -E -D_M_AMD64" CXXFLAGS="%FLAGS%" BUILD=debug SHARED=0 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1
+@echo ---------------------------------------------------------------------------
+@echo Fine compilazione librerie statiche 64 debug ...
+pause
+GOTO MENU
+
+:64D
+if %COMP64% == n GOTO MENU
+@echo ATTENDI!
+CD %WXPP%
+set PATH=%COMP64%;%PATH1%
+TITLE Compilazione librerie dinamiche 64 debug ...
+@echo ---------------------------------------------------------------------------
+mingw32-make  -f makefile.gcc  CFG=64 CPP="gcc -E -D_M_AMD64" CXXFLAGS="%FLAGS%" BUILD=debug SHARED=1 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 clean
+mingw32-make  -f makefile.gcc  CFG=64 CPP="gcc -E -D_M_AMD64" CXXFLAGS="%FLAGS%" BUILD=debug SHARED=1 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1
+@echo ---------------------------------------------------------------------------
+@echo Fine compilazione librerie dinamiche 64 debug ...
+pause
+GOTO MENU
+
+
+
+
+
+
