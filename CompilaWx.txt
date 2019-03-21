@@ -71,7 +71,7 @@ GOTO MENU
 :32A
 if %COMP32% == n GOTO MENU
 @echo ATTENDI!
-CD %WXPP%
+CD /d %WXPP%
 set PATH=%COMP32%;%PATH1%
 TITLE Compilazione librerie dinamiche 32 release ...
 @echo ---------------------------------------------------------------------------
@@ -85,7 +85,7 @@ GOTO MENU
 :32B
 if %COMP32% == n GOTO MENU
 @echo ATTENDI!
-CD %WXPP%
+CD /d %WXPP%
 set PATH=%COMP32%;%PATH1%
 TITLE Compilazione librerie statiche 32 release ...
 @echo ---------------------------------------------------------------------------
@@ -99,7 +99,7 @@ GOTO MENU
 :32C
 if %COMP32% == n GOTO MENU
 @echo ATTENDI!
-CD %WXPP%
+CD /d %WXPP%
 set PATH=%COMP32%;%PATH1%
 TITLE Compilazione librerie statiche 32 debug ...
 @echo ---------------------------------------------------------------------------
@@ -113,7 +113,7 @@ GOTO MENU
 :32D
 if %COMP32% == n GOTO MENU
 @echo ATTENDI!
-CD %WXPP%
+CD /d %WXPP%
 set PATH=%COMP32%;%PATH1%
 TITLE Compilazione librerie dinamiche 32 debug ...
 @echo ---------------------------------------------------------------------------
@@ -127,7 +127,7 @@ GOTO MENU
 :64A
 if %COMP64% == n GOTO MENU
 @echo ATTENDI!
-CD %WXPP%
+CD /d %WXPP%
 set PATH=%COMP64%;%PATH1%
 TITLE Compilazione librerie dinamiche 64 release ...
 @echo ---------------------------------------------------------------------------
@@ -141,7 +141,7 @@ GOTO MENU
 :64B
 if %COMP64% == n GOTO MENU
 @echo ATTENDI!
-CD %WXPP%
+CD /d %WXPP%
 set PATH=%COMP64%;%PATH1%
 TITLE Compilazione librerie statiche 64 release ...
 @echo ---------------------------------------------------------------------------
@@ -155,7 +155,7 @@ GOTO MENU
 :64C
 if %COMP64% == n GOTO MENU
 @echo ATTENDI!
-CD %WXPP%
+CD /d %WXPP%
 set PATH=%COMP64%;%PATH1%
 TITLE Compilazione librerie statiche 64 debug ...
 @echo ---------------------------------------------------------------------------
@@ -169,7 +169,7 @@ GOTO MENU
 :64D
 if %COMP64% == n GOTO MENU
 @echo ATTENDI!
-CD %WXPP%
+CD /d %WXPP%
 set PATH=%COMP64%;%PATH1%
 TITLE Compilazione librerie dinamiche 64 debug ...
 @echo ---------------------------------------------------------------------------
