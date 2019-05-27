@@ -71,8 +71,8 @@ GOTO MENU
 CD /d %WXPP%
 TITLE Compilazione librerie dinamiche 32 release ...
 @echo ---------------------------------------------------------------------------
-mingw32-make -f makefile.gcc BUILD=release UNICODE=1 SHARED=1 MONOLITHIC=0 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 CXXFLAGS="%COMP%" CPP="gcc -E -D_M_IX86" LDFLAGS="-m32" CPPFLAGS="-m32" WINDRES="windres --no-use-temp-file -F pe-i386" clean
-mingw32-make -f makefile.gcc BUILD=release UNICODE=1 SHARED=1 MONOLITHIC=0 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 CXXFLAGS="%COMP%" CPP="gcc -E -D_M_IX86" LDFLAGS="-m32" CPPFLAGS="-m32" WINDRES="windres --no-use-temp-file -F pe-i386"
+mingw32-make -f makefile.gcc BUILD=release UNICODE=1 SHARED=1 MONOLITHIC=0 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 CXXFLAGS="%FLAGS%" CPP="gcc -E -D_M_IX86" LDFLAGS="-m32" CPPFLAGS="-m32" WINDRES="windres --no-use-temp-file -F pe-i386" clean
+mingw32-make -f makefile.gcc BUILD=release UNICODE=1 SHARED=1 MONOLITHIC=0 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 CXXFLAGS="%FLAGS%" CPP="gcc -E -D_M_IX86" LDFLAGS="-m32" CPPFLAGS="-m32" WINDRES="windres --no-use-temp-file -F pe-i386"
 @echo ---------------------------------------------------------------------------
 @echo Fine compilazione librerie dinamiche 32 release ...
 pause
@@ -83,8 +83,8 @@ GOTO MENU
 CD /d %WXPP%
 TITLE Compilazione librerie statiche 32 release ...
 @echo ---------------------------------------------------------------------------
-mingw32-make -f makefile.gcc BUILD=release UNICODE=1 SHARED=0 MONOLITHIC=0 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 CXXFLAGS="%COMP%" CPP="gcc -E -D_M_IX86" LDFLAGS="-m32" CPPFLAGS="-m32" WINDRES="windres --no-use-temp-file -F pe-i386" clean
-mingw32-make -f makefile.gcc BUILD=release UNICODE=1 SHARED=0 MONOLITHIC=0 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 CXXFLAGS="%COMP%" CPP="gcc -E -D_M_IX86" LDFLAGS="-m32" CPPFLAGS="-m32" WINDRES="windres --no-use-temp-file -F pe-i386"
+mingw32-make -f makefile.gcc BUILD=release UNICODE=1 SHARED=0 MONOLITHIC=0 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 CXXFLAGS="%FLAGS%" CPP="gcc -E -D_M_IX86" LDFLAGS="-m32" CPPFLAGS="-m32" WINDRES="windres --no-use-temp-file -F pe-i386" clean
+mingw32-make -f makefile.gcc BUILD=release UNICODE=1 SHARED=0 MONOLITHIC=0 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 CXXFLAGS="%FLAGS%" CPP="gcc -E -D_M_IX86" LDFLAGS="-m32" CPPFLAGS="-m32" WINDRES="windres --no-use-temp-file -F pe-i386"
 @echo ---------------------------------------------------------------------------
 @echo Fine compilazione librerie statiche 32 release ...
 pause
@@ -95,8 +95,8 @@ GOTO MENU
 CD /d %WXPP%
 TITLE Compilazione librerie statiche 32 debug ...
 @echo ---------------------------------------------------------------------------
-mingw32-make -f makefile.gcc BUILD=debug UNICODE=1 SHARED=0 MONOLITHIC=0 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 CXXFLAGS="%COMP%" CPP="gcc -E -D_M_IX86" LDFLAGS="-m32" CPPFLAGS="-m32" WINDRES="windres --no-use-temp-file -F pe-i386" clean
-mingw32-make -f makefile.gcc BUILD=debug UNICODE=1 SHARED=0 MONOLITHIC=0 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 CXXFLAGS="%COMP%" CPP="gcc -E -D_M_IX86" LDFLAGS="-m32" CPPFLAGS="-m32" WINDRES="windres --no-use-temp-file -F pe-i386"
+mingw32-make -f makefile.gcc BUILD=debug UNICODE=1 SHARED=0 MONOLITHIC=0 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 CXXFLAGS="%FLAGS%" CPP="gcc -E -D_M_IX86" LDFLAGS="-m32" CPPFLAGS="-m32" WINDRES="windres --no-use-temp-file -F pe-i386" clean
+mingw32-make -f makefile.gcc BUILD=debug UNICODE=1 SHARED=0 MONOLITHIC=0 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 CXXFLAGS="%FLAGS%" CPP="gcc -E -D_M_IX86" LDFLAGS="-m32" CPPFLAGS="-m32" WINDRES="windres --no-use-temp-file -F pe-i386"
 @echo ---------------------------------------------------------------------------
 @echo Fine compilazione librerie statiche 32 debug ...
 pause
@@ -107,8 +107,8 @@ GOTO MENU
 CD /d %WXPP%
 TITLE Compilazione librerie dinamiche 32 debug ...
 @echo ---------------------------------------------------------------------------
-mingw32-make -f makefile.gcc BUILD=debug UNICODE=1 SHARED=1 MONOLITHIC=0 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 CXXFLAGS="%COMP%" CPP="gcc -E -D_M_IX86" LDFLAGS="-m32" CPPFLAGS="-m32" WINDRES="windres --no-use-temp-file -F pe-i386" clean
-mingw32-make -f makefile.gcc BUILD=debug UNICODE=1 SHARED=1 MONOLITHIC=0 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 CXXFLAGS="%COMP%" CPP="gcc -E -D_M_IX86" LDFLAGS="-m32" CPPFLAGS="-m32" WINDRES="windres --no-use-temp-file -F pe-i386"
+mingw32-make -f makefile.gcc BUILD=debug UNICODE=1 SHARED=1 MONOLITHIC=0 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 CXXFLAGS="%FLAGS%" CPP="gcc -E -D_M_IX86" LDFLAGS="-m32" CPPFLAGS="-m32" WINDRES="windres --no-use-temp-file -F pe-i386" clean
+mingw32-make -f makefile.gcc BUILD=debug UNICODE=1 SHARED=1 MONOLITHIC=0 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 CXXFLAGS="%FLAGS%" CPP="gcc -E -D_M_IX86" LDFLAGS="-m32" CPPFLAGS="-m32" WINDRES="windres --no-use-temp-file -F pe-i386"
 @echo ---------------------------------------------------------------------------
 @echo Fine compilazione librerie dinamiche 32 debug ...
 pause
