@@ -119,8 +119,8 @@ GOTO MENU
 CD /d %WXPP%
 TITLE Compilazione librerie dinamiche 64 release ...
 @echo ---------------------------------------------------------------------------
-mingw32-make  -f makefile.gcc  CFG=64 CPP="gcc -E -D_M_AMD64" CXXFLAGS="%FLAGS%" BUILD=release SHARED=1 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 clean
-mingw32-make  -f makefile.gcc  CFG=64 CPP="gcc -E -D_M_AMD64" CXXFLAGS="%FLAGS%" BUILD=release SHARED=1 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1
+mingw32-make  -f makefile.gcc  COMPILER_PREFIX=gcc_x64 CPP="gcc -E -D_M_AMD64" CXXFLAGS="%FLAGS%" BUILD=release SHARED=1 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 clean
+mingw32-make  -f makefile.gcc  COMPILER_PREFIX=gcc_x64 CPP="gcc -E -D_M_AMD64" CXXFLAGS="%FLAGS%" BUILD=release SHARED=1 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1
 @echo ---------------------------------------------------------------------------
 @echo Fine compilazione librerie dinamiche 64 release ...
 pause
@@ -131,8 +131,8 @@ GOTO MENU
 CD /d %WXPP%
 TITLE Compilazione librerie statiche 64 release ...
 @echo ---------------------------------------------------------------------------
-mingw32-make  -f makefile.gcc  CFG=64 CPP="gcc -E -D_M_AMD64" CXXFLAGS="%FLAGS%" BUILD=release SHARED=0 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 clean
-mingw32-make  -f makefile.gcc  CFG=64 CPP="gcc -E -D_M_AMD64" CXXFLAGS="%FLAGS%" BUILD=release SHARED=0 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1
+mingw32-make  -f makefile.gcc  COMPILER_PREFIX=gcc_x64 CPP="gcc -E -D_M_AMD64" CXXFLAGS="%FLAGS%" BUILD=release SHARED=0 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 clean
+mingw32-make  -f makefile.gcc  COMPILER_PREFIX=gcc_x64 CPP="gcc -E -D_M_AMD64" CXXFLAGS="%FLAGS%" BUILD=release SHARED=0 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1
 @echo ---------------------------------------------------------------------------
 @echo Fine compilazione librerie statiche 64 release ...
 pause
@@ -143,8 +143,8 @@ GOTO MENU
 CD /d %WXPP%
 TITLE Compilazione librerie statiche 64 debug ...
 @echo ---------------------------------------------------------------------------
-mingw32-make  -f makefile.gcc  CFG=64 CPP="gcc -E -D_M_AMD64" CXXFLAGS="%FLAGS%" BUILD=debug SHARED=0 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 clean
-mingw32-make  -f makefile.gcc  CFG=64 CPP="gcc -E -D_M_AMD64" CXXFLAGS="%FLAGS%" BUILD=debug SHARED=0 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1
+mingw32-make  -f makefile.gcc  COMPILER_PREFIX=gcc_x64 CPP="gcc -E -D_M_AMD64" CXXFLAGS="%FLAGS%" BUILD=debug SHARED=0 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 clean
+mingw32-make  -f makefile.gcc  COMPILER_PREFIX=gcc_x64 CPP="gcc -E -D_M_AMD64" CXXFLAGS="%FLAGS%" BUILD=debug SHARED=0 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1
 @echo ---------------------------------------------------------------------------
 @echo Fine compilazione librerie statiche 64 debug ...
 pause
@@ -155,8 +155,8 @@ GOTO MENU
 CD /d %WXPP%
 TITLE Compilazione librerie dinamiche 64 debug ...
 @echo ---------------------------------------------------------------------------
-mingw32-make  -f makefile.gcc  CFG=64 CPP="gcc -E -D_M_AMD64" CXXFLAGS="%FLAGS%" BUILD=debug SHARED=1 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 clean
-mingw32-make  -f makefile.gcc  CFG=64 CPP="gcc -E -D_M_AMD64" CXXFLAGS="%FLAGS%" BUILD=debug SHARED=1 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1
+mingw32-make  -f makefile.gcc  COMPILER_PREFIX=gcc_x64 CPP="gcc -E -D_M_AMD64" CXXFLAGS="%FLAGS%" BUILD=debug SHARED=1 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1 clean
+mingw32-make  -f makefile.gcc  COMPILER_PREFIX=gcc_x64 CPP="gcc -E -D_M_AMD64" CXXFLAGS="%FLAGS%" BUILD=debug SHARED=1 MONOLITHIC=0 UNICODE=1 USE_WEBVIEW=1 USE_XRC=1 USE_OPENGL=1
 @echo ---------------------------------------------------------------------------
 @echo Fine compilazione librerie dinamiche 64 debug ...
 pause
