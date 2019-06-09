@@ -1,6 +1,7 @@
 @echo off
 TITLE INIZIALIZZAZIONE COMPILAZIONE WXWIDGETS
 MODE CON COLS=132 LINES=30
+COLOR 1F
 :START
 @echo.
 @echo --------------------------------------------------------------------------
